@@ -5,11 +5,12 @@ const path = require("path");
 const app = express();
 //Port
 const PORT = 3000;
+// middleware 
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 //Paths
 require("./app/routing/apiRoutes")(app);
 require("./app/routing/htmlRoutes")(app);
-// middleware 
 
 
 //start the server
