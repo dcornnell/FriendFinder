@@ -6,6 +6,7 @@ const app = express();
 //Port
 const PORT = 3000;
 // middleware 
+app.use(express.static('app/public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 //Paths
