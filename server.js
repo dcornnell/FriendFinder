@@ -4,7 +4,7 @@ const path = require("path");
 // initialise new server
 const app = express();
 //Port
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 // middleware 
 app.use(express.static('app/public'));
 app.use(express.urlencoded({ extended: true }));
