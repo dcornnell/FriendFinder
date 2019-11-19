@@ -8,24 +8,31 @@ module.exports = function(app) {
     })
 
     app.post("/api/friends", function(req, res) {
-        console.log(req.body);
+
         const newUser = req.body
+        const match = findMatch(newUser)
+        users.push(newUser);
+
+        res.json(match);
+
+
+    })
+
+    function findMatch(obj) {
         scores = []
         let bestMatch = users[0];
         for (let i = 0; i < users.length; i++) {
 
             let score = 0;
-            for (let j = 0; j < newUser.scores.length; j++) {
-                score += (Math.abs(newUser.scores[j] - users[i].scores[j]))
+            for (let j = 0; j < obj.scores.length; j++) {
+                score += (Math.abs(obj.scores[j] - users[i].scores[j]))
             }
             scores.push((score))
         }
-        console.log(scores);
-        bestMatch = users[getLowest(scores)];
-        res.json(bestMatch);
-        console.log(bestMatch)
 
-    })
+        bestMatch = users[getLowest(scores)];
+        return bestMatch;
+    }
 
     function getLowest(arr) {
         let lowest = arr[0] || 25;
