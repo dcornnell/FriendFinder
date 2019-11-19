@@ -8,6 +8,7 @@ module.exports = function(app) {
     })
 
     app.post("/api/friends", function(req, res) {
+        console.log(req.body);
         const newUser = req.body
         scores = []
         let bestMatch = users[0];
@@ -22,6 +23,7 @@ module.exports = function(app) {
         console.log(scores);
         bestMatch = users[getLowest(scores)];
         res.json(bestMatch);
+        console.log(bestMatch)
 
     })
 
