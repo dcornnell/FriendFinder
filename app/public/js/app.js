@@ -1,15 +1,12 @@
-const defaultUser = {
-    name: "",
-    description: "",
-    photo: ""
-};
-
+// on the submit of the form the results are formated as an object then sent with a post request
 $("#survey-submit").on("click", function() {
     event.preventDefault()
-    let newUser = defaultUser;
+    const newUser = {};
     console.log(newUser)
+        //if users dont input defaults are provided after the ||
     newUser.name = $('input[name=name]').val() || "????";
     newUser.photo = $('input[name=photo]').val() || "/../img/default.jpg";
+    newUser.description = $('#description').val() || "no description given"
 
     newUser.scores = [$('input[name=q1]:checked').val(),
         $('input[name=q2]:checked').val(),
@@ -22,13 +19,12 @@ $("#survey-submit").on("click", function() {
         $('input[name=q9]:checked').val(),
         $('input[name=q10]:checked').val()
     ];
-    newUser.description = $('#description').val() || "no description given"
 
     $.post("/api/friends", newUser, function(data) {
 
 
 
-        //sets to incoming data
+        //sets the incoming data to dom
         $('#name').text(data.name);
         $("#friend-img").attr('src', data.photo)
         $("#about").text(data.description)

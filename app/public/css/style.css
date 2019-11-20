@@ -2,10 +2,16 @@
     max-width: 150px;
 }
 
-.alt {
-    background-color: grey;
+.row {
+    margin-bottom: 10px;
 }
 
 .jumbotron {
     margin-top: 10px;
+}
+
+#survey {
+    padding: 10px;
+    margin-top: 10px;
+    background-color: seashell;
 }

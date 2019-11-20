@@ -1,23 +1,25 @@
+//required modules
 const path = require('path');
 const users = require(path.join(__dirname, "../data/friends.js"));
 
 
 module.exports = function(app) {
+    //displays json
     app.get("/api/friends", function(req, res) {
-        res.json(users)
-    })
-
+            res.json(users)
+        })
+        // takes the survey results
     app.post("/api/friends", function(req, res) {
-        console.log(req.body)
-        const newUser = req.body
-        const match = findMatch(newUser)
-        users.push(newUser);
+            console.log(req.body)
+            const newUser = req.body
+            const match = findMatch(newUser)
+            users.push(newUser);
 
-        res.json(match);
+            res.json(match);
 
 
-    })
-
+        })
+        //finds the best match
     function findMatch(obj) {
         scores = []
         let bestMatch = users[0];
