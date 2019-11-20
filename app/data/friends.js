@@ -2,7 +2,7 @@ let dataArray = [{
     name: "Garfield",
     photo: "/../img/garfield.jpg",
     scores: [5, 5, 1, 2, 1, 1, 4, 1, 1, 1],
-    description: "Garfield is lazy, obsessive about eating and coffee He hates Mondays and diets. Garfield is also shown to manipulate people to get whatever he wants."
+    description: "Garfield is lazy, obsessive about eating and drinking coffee. He hates Mondays and diets. Garfield is also shown to manipulate people to get whatever he wants."
 }, {
     name: "Lil Bub",
     photo: "/../img/lilbub.jpg",
