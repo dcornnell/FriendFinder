@@ -8,7 +8,7 @@ module.exports = function(app) {
     })
 
     app.post("/api/friends", function(req, res) {
-
+        console.log(req.body)
         const newUser = req.body
         const match = findMatch(newUser)
         users.push(newUser);
